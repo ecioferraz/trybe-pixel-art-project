@@ -11,5 +11,5 @@ color2.style.backgroundColor = 'blue';
 color3.style.backgroundColor = 'yellow';
 color4.style.backgroundColor = 'purple';
 
-
+color1.classList.add('selected');
 }
