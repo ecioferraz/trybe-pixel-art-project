@@ -12,4 +12,16 @@ color3.style.backgroundColor = 'yellow';
 color4.style.backgroundColor = 'purple';
 
 color1.classList.add('selected');
+
+function addSelected(event) {
+  let selectedColor = document.querySelector('.selected');
+  selectedColor.classList.remove('selected');
+  event.target.classList.add('selected');
+}
+
+color1.addEventListener('click', addSelected);
+color2.addEventListener('click', addSelected);
+color3.addEventListener('click', addSelected);
+color4.addEventListener('click', addSelected);
+
 }
