@@ -29,8 +29,17 @@ window.onload = function() {
 
   let pixel = document.querySelector('#pixel-board');
 
-  pixel.addEventListener('click', function (event) {
+  pixel.addEventListener('click', function(event) {
   event.target.style.backgroundColor = color;
-    });
+  });
   
+  let btn = document.querySelector('#clear-board');
+  let pixels = document.getElementsByClassName('pixel');
+
+  btn.addEventListener('click', function() {
+    for (index = 0; index < pixels.length; index += 1) {
+      pixels[index].style.backgroundColor = 'white';
+    }
+  })
+
 }
