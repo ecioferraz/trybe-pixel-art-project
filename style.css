@@ -17,3 +17,7 @@ body {
   display: table-cell;
   background-color: white;
 }
+
+#pixel-board {
+  width: fit-content;
+}
