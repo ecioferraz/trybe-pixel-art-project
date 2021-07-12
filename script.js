@@ -1,16 +1,16 @@
 window.onload = function() {
   // 1. Cria o título com id 'title'
-  let h1 = document.createElement('h1');
+  const h1 = document.createElement('h1');
   h1.innerHTML = 'Paleta de Cores';
   h1.id = 'title';
   document.body.prepend(h1);
 
   // 2 e 3. Adiciona paleta de quatro cores
-  let palette = document.createElement('div');
+  const palette = document.createElement('div');
   palette.id = 'color-palette';
   document.body.insertBefore(palette, h1.nextElementSibling);
 
-  let colorPalette = document.querySelector('#color-palette');
+  const colorPalette = document.querySelector('#color-palette');
 
   for (let index = 0; index < 4; index += 1) {
     let div = document.createElement('div');
@@ -30,11 +30,11 @@ window.onload = function() {
   color4.style.backgroundColor = 'purple';
 
   // 4 e 5. Adiciona um quadro de pixels
-  let pixelBoard = document.createElement('div');
+  const pixelBoard = document.createElement('div');
   pixelBoard.id = 'pixel-board';
   document.body.insertBefore(pixelBoard, palette.nextElementSibling);
 
-  let pixels = document.querySelector('#pixel-board');
+  const pixels = document.querySelector('#pixel-board');
   let n = 5;
 
   for (let index = 0; index < n; index += 1) {
@@ -43,7 +43,6 @@ window.onload = function() {
     }
 
     let pixelsChildren = pixels.children;
-    console.log(pixelsChildren)
 
   for (let index = 0; index < n; index += 1) {
     for (let index = 0; index < n; index += 1) {
@@ -73,24 +72,69 @@ window.onload = function() {
   color4.addEventListener('click', addSelected);
 
   // 8. Pinta os pixels com a cor selecionada
-  let pixel = document.querySelector('#pixel-board');
+  const pixel = document.querySelector('#pixel-board');
 
   pixel.addEventListener('click', function(event) {
   event.target.style.backgroundColor = color;
   });
 
   // 9. Cria o botão para limpar os pixels
-  let button = document.createElement('button');
-  button.innerHTML = 'Limpar'
-  button.id = 'clear-board';
-  document.body.insertBefore(button, colorPalette.nextElementSibling);
+  const createClearAllBtn = document.createElement('button');
+  createClearAllBtn.innerHTML = 'Limpar'
+  createClearAllBtn.id = 'clear-board';
+  document.body.insertBefore(createClearAllBtn, colorPalette.nextElementSibling);
 
-  let btn = document.querySelector('#clear-board');
-  let paintPixels = document.getElementsByClassName('pixel');
+  const clearBtn = document.querySelector('#clear-board');
+  const paintPixels = document.getElementsByClassName('pixel');
 
-  btn.addEventListener('click', function() {
+  clearBtn.addEventListener('click', function() {
     for (index = 0; index < paintPixels.length; index += 1) {
       paintPixels[index].style.backgroundColor = 'white';
+    }
+  })
+
+  //10 e 11. Cria um botão que define o número de pixels
+  const createInputPixel = document.createElement('input');
+  const createInputBtn = document.createElement('button');
+  createInputPixel.id = 'board-size';
+  createInputPixel.type = 'number';
+  createInputPixel.min = 1;
+  createInputBtn.id = 'generate-board';
+  createInputBtn.innerHTML = 'VQV'
+  document.body.insertBefore(createInputPixel, createClearAllBtn.nextElementSibling);
+  document.body.insertBefore(createInputBtn, createInputPixel.nextElementSibling);
+
+  const inputBtn = document.querySelector('#generate-board');
+  const inputPixel = document.querySelector('#board-size');
+  
+  inputBtn.addEventListener('click', function boardSize () {
+    pixels.innerHTML = '';
+
+    if (!inputPixel.value) {
+      window.alert('Board inválido!');
+    } else if (inputPixel.value < 5) {
+      inputPixel.value = 5;
+    } else if (inputPixel.value > 50) {
+      inputPixel.value = 50;
+    }
+
+    n = inputPixel.value;
+    
+
+    for (let index = 0; index < n; index += 1) {
+      let div = document.createElement('div');
+      pixels.appendChild(div);
+    }
+
+    let pixelsChildren = pixels.children;
+
+    for (let index = 0; index < n; index += 1) {
+      for (let index = 0; index < n; index += 1) {
+        let pixelDiv = document.createElement('div');
+        pixelDiv.className = 'pixel';
+
+        pixelsChildren[index].appendChild(pixelDiv);
+      }
     }
   })
 }
