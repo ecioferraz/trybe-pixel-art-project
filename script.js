@@ -97,7 +97,7 @@ window.onload = function () {
 
   const inputBtn = document.querySelector('#generate-board');
   const inputPixel = document.querySelector('#board-size');
-    inputBtn.addEventListener('click', function boardSize() {
+  inputBtn.addEventListener('click', function boardSize() {
     pixels.innerHTML = '';
 
     if (!inputPixel.value) {
@@ -108,8 +108,7 @@ window.onload = function () {
       inputPixel.value = 50;
     }
 
-    n = inputPixel.value;
-    
+    n = inputPixel.value;    
     for (let index = 0; index < n; index += 1) {
       const div = document.createElement('div');
       pixels.appendChild(div);
@@ -127,8 +126,8 @@ window.onload = function () {
 
   // 12. Cores aleatórias
   function randomColors() {
-    const color = `rgb(${Math.floor(Math.random() * 255)},${Math.floor(Math.random() * 255)},${Math.floor(Math.random() * 255)})`;
-    return color;
+    const randomColor = `rgb(${Math.floor(Math.random() * 255)},${Math.floor(Math.random() * 255)},${Math.floor(Math.random() * 255)})`;
+    return randomColor;
   }
 
   for (let index = 1; index < colors.length; index += 1) {
