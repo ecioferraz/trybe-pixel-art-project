@@ -44,7 +44,7 @@ window.onload = function () {
 
   for (let index = 0; index < n; index += 1) {
     for (let index2 = 0; index2 < n; index2 += 1) {
-      let pixelDiv = document.createElement('div');
+      const pixelDiv = document.createElement('div');
       pixelDiv.className = 'pixel';
 
       pixels.children[index].appendChild(pixelDiv);
@@ -57,7 +57,7 @@ window.onload = function () {
   // 7. Altera cor selecionada
   let color = color1.style.backgroundColor;
 
-  function addSelected (event) {
+  function addSelected(event) {
     const selectedColor = document.querySelector('.selected');
     selectedColor.classList.remove('selected');
     event.target.classList.add('selected');
@@ -72,40 +72,39 @@ window.onload = function () {
   // 8. Pinta os pixels com a cor selecionada
   const pixel = document.querySelector('#pixel-board');
 
-  pixel.addEventListener('click', function(event) {
+  pixel.addEventListener('click', function (event) {
     event.target.style.backgroundColor = color;
   });
 
   // 9. Cria o botão para limpar os pixels
   const createClearAllBtn = document.createElement('button');
-  createClearAllBtn.innerHTML = 'Limpar'
+  createClearAllBtn.innerHTML = 'Limpar';
   createClearAllBtn.id = 'clear-board';
   document.body.insertBefore(createClearAllBtn, colorPalette.nextElementSibling);
 
   const clearBtn = document.querySelector('#clear-board');
   const paintPixels = document.getElementsByClassName('pixel');
 
-  clearBtn.addEventListener('click', function() {
-    for (index = 0; index < paintPixels.length; index += 1) {
+  clearBtn.addEventListener('click', function () {
+    for (let index = 0; index < paintPixels.length; index += 1) {
       paintPixels[index].style.backgroundColor = 'white';
     }
-  })
+  });
 
-  //10 e 11. Cria um botão que define o número de pixels
+  // 10 e 11. Cria um botão que define o número de pixels
   const createInputPixel = document.createElement('input');
   const createInputBtn = document.createElement('button');
   createInputPixel.id = 'board-size';
   createInputPixel.type = 'number';
   createInputPixel.min = 1;
   createInputBtn.id = 'generate-board';
-  createInputBtn.innerHTML = 'VQV'
+  createInputBtn.innerHTML = 'VQV';
   document.body.insertBefore(createInputPixel, createClearAllBtn.nextElementSibling);
   document.body.insertBefore(createInputBtn, createInputPixel.nextElementSibling);
 
   const inputBtn = document.querySelector('#generate-board');
   const inputPixel = document.querySelector('#board-size');
-  
-  inputBtn.addEventListener('click', function boardSize () {
+    inputBtn.addEventListener('click', function boardSize() {
     pixels.innerHTML = '';
 
     if (!inputPixel.value) {
@@ -118,19 +117,18 @@ window.onload = function () {
 
     n = inputPixel.value;
     
-
     for (let index = 0; index < n; index += 1) {
-      let div = document.createElement('div');
+      const div = document.createElement('div');
       pixels.appendChild(div);
     }
 
     for (let index = 0; index < n; index += 1) {
       for (let index2 = 0; index2 < n; index2 += 1) {
-        let pixelDiv = document.createElement('div');
+        const pixelDiv = document.createElement('div');
         pixelDiv.className = 'pixel';
 
         pixels.children[index2].appendChild(pixelDiv);
       }
     }
-  })
-}
+  });
+};
