@@ -1,4 +1,4 @@
-window.onload = function() {
+window.onload = function () {
   // 1. Cria o título com id 'title'
   const h1 = document.createElement('h1');
   h1.innerHTML = 'Paleta de Cores';
@@ -13,16 +13,16 @@ window.onload = function() {
   const colorPalette = document.querySelector('#color-palette');
 
   for (let index = 0; index < 4; index += 1) {
-    let div = document.createElement('div');
+    const div = document.createElement('div');
     div.className = 'color';
 
     colorPalette.appendChild(div);
   }
 
-  let color1 = document.querySelector('#color-palette').firstElementChild;
-  let color2 = document.querySelector('#color-palette').children[1];
-  let color3 = document.querySelector('#color-palette').children[2];
-  let color4 = document.querySelector('#color-palette').lastElementChild;
+  const color1 = document.querySelector('#color-palette').firstElementChild;
+  const color2 = document.querySelector('#color-palette').children[1];
+  const color3 = document.querySelector('#color-palette').children[2];
+  const color4 = document.querySelector('#color-palette').lastElementChild;
 
   color1.style.backgroundColor = 'black';
   color2.style.backgroundColor = 'blue';
@@ -38,18 +38,16 @@ window.onload = function() {
   let n = 5;
 
   for (let index = 0; index < n; index += 1) {
-    let div = document.createElement('div');
+    const div = document.createElement('div');
     pixels.appendChild(div);
-    }
-
-    let pixelsChildren = pixels.children;
+  }
 
   for (let index = 0; index < n; index += 1) {
-    for (let index = 0; index < n; index += 1) {
-    let pixelDiv = document.createElement('div');
-    pixelDiv.className = 'pixel';
+    for (let index2 = 0; index2 < n; index2 += 1) {
+      let pixelDiv = document.createElement('div');
+      pixelDiv.className = 'pixel';
 
-    pixelsChildren[index].appendChild(pixelDiv);
+      pixels.children[index].appendChild(pixelDiv);
     }
   }
 
@@ -59,8 +57,8 @@ window.onload = function() {
   // 7. Altera cor selecionada
   let color = color1.style.backgroundColor;
 
-  function addSelected(event) {
-    let selectedColor = document.querySelector('.selected');
+  function addSelected (event) {
+    const selectedColor = document.querySelector('.selected');
     selectedColor.classList.remove('selected');
     event.target.classList.add('selected');
     color = event.target.style.backgroundColor;
@@ -75,7 +73,7 @@ window.onload = function() {
   const pixel = document.querySelector('#pixel-board');
 
   pixel.addEventListener('click', function(event) {
-  event.target.style.backgroundColor = color;
+    event.target.style.backgroundColor = color;
   });
 
   // 9. Cria o botão para limpar os pixels
@@ -126,14 +124,12 @@ window.onload = function() {
       pixels.appendChild(div);
     }
 
-    let pixelsChildren = pixels.children;
-
     for (let index = 0; index < n; index += 1) {
-      for (let index = 0; index < n; index += 1) {
+      for (let index2 = 0; index2 < n; index2 += 1) {
         let pixelDiv = document.createElement('div');
         pixelDiv.className = 'pixel';
 
-        pixelsChildren[index].appendChild(pixelDiv);
+        pixels.children[index2].appendChild(pixelDiv);
       }
     }
   })
