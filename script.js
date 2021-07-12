@@ -19,15 +19,9 @@ window.onload = function () {
     colorPalette.appendChild(div);
   }
 
-  const color1 = document.querySelector('#color-palette').firstElementChild;
-  const color2 = document.querySelector('#color-palette').children[1];
-  const color3 = document.querySelector('#color-palette').children[2];
-  const color4 = document.querySelector('#color-palette').lastElementChild;
+  const colors = document.querySelectorAll('.color');
 
-  color1.style.backgroundColor = 'black';
-  color2.style.backgroundColor = 'blue';
-  color3.style.backgroundColor = 'yellow';
-  color4.style.backgroundColor = 'purple';
+  colors[0].style.backgroundColor = 'black';
 
   // 4 e 5. Adiciona um quadro de pixels
   const pixelBoard = document.createElement('div');
@@ -52,10 +46,10 @@ window.onload = function () {
   }
 
   // 6. Cor preta inicial
-  color1.classList.add('selected');
+  colors[0].classList.add('selected');
 
   // 7. Altera cor selecionada
-  let color = color1.style.backgroundColor;
+  let color = colors[0].style.backgroundColor;
 
   function addSelected(event) {
     const selectedColor = document.querySelector('.selected');
@@ -64,10 +58,9 @@ window.onload = function () {
     color = event.target.style.backgroundColor;
   }
 
-  color1.addEventListener('click', addSelected);
-  color2.addEventListener('click', addSelected);
-  color3.addEventListener('click', addSelected);
-  color4.addEventListener('click', addSelected);
+  for (let index = 0; index < colors.length; index += 1) {
+    colors[index].addEventListener('click', addSelected);
+  }
 
   // 8. Pinta os pixels com a cor selecionada
   const pixel = document.querySelector('#pixel-board');
@@ -131,4 +124,14 @@ window.onload = function () {
       }
     }
   });
+
+  // 12. Cores aleatórias
+  function randomColors() {
+    const color = `rgb(${Math.floor(Math.random() * 255)},${Math.floor(Math.random() * 255)},${Math.floor(Math.random() * 255)})`;
+    return color;
+  }
+
+  for (let index = 1; index < colors.length; index += 1) {
+    colors[index].style.backgroundColor = randomColors();
+  }
 };

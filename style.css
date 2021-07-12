@@ -1,7 +1,18 @@
 body {
   margin: 10px;
-  align-items: center;
-  background-color:burlywood;
+  background-color: burlywood;
+}
+
+button {
+  margin: 5px;
+}
+
+#clear-board {
+  margin-left: 0px;
+}
+
+#color-palette {
+  margin-bottom: 15px;
 }
 
 .color {
@@ -22,4 +33,4 @@ body {
 #pixel-board {
   width: fit-content;
   margin-top: 20px;
-}
+};
