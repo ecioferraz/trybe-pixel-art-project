@@ -126,7 +126,11 @@ window.onload = function () {
 
   // 12. Cores aleatórias
   function randomColors() {
-    const randomColor = `rgb(${Math.floor(Math.random() * 255)},${Math.floor(Math.random() * 255)},${Math.floor(Math.random() * 255)})`;
+    const randomColor = `rgb(
+      ${Math.floor(Math.random() * 255)},
+      ${Math.floor(Math.random() * 255)},
+      ${Math.floor(Math.random() * 255)}
+    )`;
     return randomColor;
   }
 

@@ -7,6 +7,10 @@ button {
   margin: 5px;
 }
 
+input {
+  width: 75px;
+}
+
 #clear-board {
   margin-left: 0px;
 }
