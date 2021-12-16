@@ -1,14 +1,71 @@
+@import url('http://fonts.cdnfonts.com/css/karmatic-arcade');
+
 body {
-  margin: 10px;
-  background-color: burlywood;
+  align-items: center;
+  background-image: url("./images/vwYBRko.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Karmatic Arcade', sans-serif;
+  height: 100vh;
+  justify-content: center;
+  margin: 0;
+  width: 100%;
+  margin-top: -20px;
 }
 
+h1 {
+  color: rgb(220, 250, 220);
+  font-size: 2.2em;
+  margin: 50px 0;
+}
+
+/* https://getcssscan.com/css-buttons-examples */
 button {
+  cursor: pointer;
+  padding: 0 18px;
+}
+
+#pixel-board, #color-palette, button, input {
+  background-color: rgb(237, 255, 218);
+  border: 2px solid #422800;
+  box-shadow: #422800 4px 4px 0 0;
+  color: #422800;
+  display: inline-block;
+  font-weight: 600;
+  font-size: 14px;
   margin: 5px;
+  line-height: 30px;
+  text-align: center;
+  text-decoration: none;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+button:hover {
+  background-color: #fff;
+}
+
+button:active {
+  box-shadow: #422800 2px 2px 0 0;
+  transform: translate(2px, 2px);
+}
+
+@media (min-width: 768px) {
+  button {
+    min-width: 0px;
+    padding: 0 25px;
+  }
 }
 
 input {
-  width: 75px;
+  margin: 10px;
+  padding: 0 18px;
+  width: 100px;
+  text-align: center;
 }
 
 #clear-board {
@@ -35,6 +92,5 @@ input {
 }
 
 #pixel-board {
-  width: fit-content;
-  margin-top: 20px;
+  margin: 20px 0 50px 0;
 };
