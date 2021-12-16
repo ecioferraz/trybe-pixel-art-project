@@ -1,3 +1,10 @@
+@font-face {
+  font-family: 'Karmatic Arcade';
+  font-style: normal;
+  font-weight: 400;
+  src: local('Karmatic Arcade'), url('https://fonts.cdnfonts.com/s/6053/ka1.woff') format('woff');
+}
+
 body {
   align-items: center;
   background-image: url("./images/vwYBRko.png");
